@@ -6,10 +6,7 @@ import {doAdd,doDecrease} from '@redux/actions/'
 import {post} from '@utils/fetch'
 class Index extends Component{
     componentDidMount(){
-        post('/api/index',{name:'ck',age: 18}).then((res)=> {
-            console.log(res)
-            return res
-        }).then((res)=> res.json()).then((res)=>{
+        post('/api/index',{name:'ck',age: 18}).then((res)=>{
             console.log(res)
         })
     }
