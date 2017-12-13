@@ -2,7 +2,17 @@ import React,{Component} from 'react'
 import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {doAdd,doDecrease} from '@redux/actions/'
+
+import {post} from '@utils/fetch'
 class Index extends Component{
+    componentDidMount(){
+        post('/api/index',{name:'ck',age: 18}).then((res)=> {
+            console.log(res)
+            return res
+        }).then((res)=> res.json()).then((res)=>{
+            console.log(res)
+        })
+    }
     render(){
         console.log(this.props)
         const {add,counter} = this.props

@@ -6,6 +6,8 @@ const pkg = require('./package.json')
 module.exports = {
     entry:{
         app: [
+            'babel-polyfill',
+            'whatwg-fetch',
             path.join(__dirname,'src/index.js')
         ],
         vender: Object.keys(pkg.dependencies)
@@ -44,7 +46,8 @@ module.exports = {
     resolve:{
         alias: {
             "@": path.join(__dirname,'src/pages'),
-            "@redux": path.join(__dirname,'src/redux')
+            "@redux": path.join(__dirname,'src/redux'),
+            "@utils": path.join(__dirname,'src/utils')
         }
     }
 }

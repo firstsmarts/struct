@@ -5,6 +5,8 @@ const devConfig = {
     devtool: 'inline-source-map',
     entry:{
         app: [
+            'babel-polyfill',
+            'whatwg-fetch',
             'react-hot-loader/patch', 
             path.join(__dirname,'src/index.js')
         ]
@@ -25,7 +27,10 @@ const devConfig = {
         host: "0.0.0.0",
         // progress: true,   cli only 需要在命令行配置
         proxy:{
-
+            '/api': {
+                target: 'http://chengkun-dev.incubate.os:8081',
+                secure: false
+              }
         }
     }
 }
